@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float jumpForce = 10;
     public float speed = 400;
-    public LayerMask playerMask;
 
     private float horizontalMove;
     private Rigidbody2D rb;
