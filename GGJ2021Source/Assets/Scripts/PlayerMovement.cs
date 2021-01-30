@@ -6,16 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public float jumpForce = 10;
     public float speed = 400;
-    public GameObject GroundCheck;
     public LayerMask playerMask;
 
     private float horizontalMove;
-    private Vector3 velocity;
     private Rigidbody2D rb;
     private bool facingRight = true;
     public bool isGrounded;
-
-    Animator animator;
 
     void Start()
     {
