@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField][Range(0.1f,10f)] private float attackFrequency = 0.8f;
     [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
-    [SerializeField][Range(1f,100f)] private float health = 10f;
+    [Range(1f,100f)] public float health = 10f;
     [SerializeField] private LockingEvent unlockEvent;
     private Vector3[] attackPositions;
     private int currentPos;
