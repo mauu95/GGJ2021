@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity += jumpForce * Vector2.up;
             isGrounded = false;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Jump", transform.position);
         }
     }
 
