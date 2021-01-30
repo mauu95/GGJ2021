@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField][Range(0.1f,10f)] private float attackFrequency = 0.8f;
+    [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
     private Vector3[] attackPositions;
     private int currentPos;
-    [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
     private bool canChangePos = false;
     private float timeFromPosChange = 0f;
-
+    private float timeFromLastAttack = 0f;
     private bool invulnerable = false;
+    private Transform player;
+    private EnemyShooter shooter;
+
 
     private void Awake() {
         List<Vector3> positions = new List<Vector3>();
@@ -22,9 +26,28 @@ public class Enemy : MonoBehaviour
         attackPositions = positions.ToArray();
         currentPos = 0;
         transform.position = attackPositions[currentPos];
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        shooter = GetComponent<EnemyShooter>();
     }
 
     private void Update() {
+        movementBehaviour();
+        attackBehaviour();
+
+    }
+
+    private void attackBehaviour(){
+        Vector3 attackOrigin = transform.position;
+        Vector3 attackDirection = player.position - transform.position;
+        timeFromLastAttack += Time.deltaTime;
+        if(timeFromLastAttack > attackFrequency){
+            timeFromLastAttack = 0f;
+            shooter.Shoot(attackOrigin,attackDirection);
+        }
+
+    }
+
+    private void movementBehaviour(){
         if(timeFromPosChange > timeToPosChange){
                 canChangePos = true;
         }
@@ -39,9 +62,10 @@ public class Enemy : MonoBehaviour
                     nextPos = Random.Range(0,attackPositions.Length);
                 }
                 StartCoroutine("moveToNewPos",nextPos);
+                timeFromPosChange = 0f;
+                canChangePos = false;
             }
         }
-
     }
 
     private IEnumerator moveToNewPos(int nextPos){
@@ -55,6 +79,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.Lerp(oldPos,targetPos,lerp);
             yield return new WaitForEndOfFrame();
         }
+        currentPos = nextPos;
         invulnerable = false;
         yield return null;
     }
