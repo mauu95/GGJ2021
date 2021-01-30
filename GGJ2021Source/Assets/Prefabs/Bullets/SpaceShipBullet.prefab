@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 171662789296998945}
   - component: {fileID: 171662789296998946}
   - component: {fileID: 171662789296998951}
-  - component: {fileID: 7640393017794608982}
+  - component: {fileID: 1537012124428787201}
   m_Layer: 0
   m_Name: SpaceShipBullet
   m_TagString: Enemy
@@ -121,7 +121,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.4588721, y: 0.3256459}
   m_Size: {x: 3.9638553, y: 1.2402502}
   m_Direction: 1
---- !u!114 &7640393017794608982
+--- !u!114 &1537012124428787201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,10 +130,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 171662789296998947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51d6ebbb8d5a96043996f645d2a2a07b, type: 3}
+  m_Script: {fileID: 11500000, guid: ee1734d55dcd3884f90ca6c62910d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTags:
   - Player
   - Bullet
   speed: 5
+  maxAngleChange: 65

@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField][Range(0.1f,10f)] private float attackFrequency = 0.8f;
     [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
     [SerializeField][Range(1f,100f)] private float health = 10f;
+    [SerializeField] private LockingEvent unlockEvent;
     private Vector3[] attackPositions;
     private int currentPos;
     private bool canChangePos = false;
@@ -34,19 +35,25 @@ public class Enemy : MonoBehaviour
     private void Update() {
         movementBehaviour();
         attackBehaviour();
-
+        GraphicsBehaviour();
     }
 
     private void attackBehaviour(){
-        if(invulnerable) return;
         Vector3 attackOrigin = transform.position;
         Vector3 attackDirection = (player.position - transform.position).normalized;
         timeFromLastAttack += Time.deltaTime;
+        if(invulnerable) return;
         if(timeFromLastAttack > attackFrequency){
             timeFromLastAttack = 0f;
             shooter.Shoot(attackOrigin,attackDirection);
         }
 
+    }
+
+    private void GraphicsBehaviour(){
+        if(transform.position.x > player.position.x){
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void movementBehaviour(){
@@ -91,6 +98,7 @@ public class Enemy : MonoBehaviour
             health -= 1;
         }
         if(health <=0){
+            unlockEvent.unlockEvent();
             Destroy(gameObject);
         }
     }

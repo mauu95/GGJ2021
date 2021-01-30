@@ -10,6 +10,7 @@ public class LockingEvent : MonoBehaviour
     private Transform previousFollow;
     private Transform[] limiters;
     private bool locked = false;
+    private bool isUnlocked = false;
     private Camera maincam;
 
     // Start is called before the first frame update
@@ -39,6 +40,8 @@ public class LockingEvent : MonoBehaviour
         StartCoroutine("moveLimitersToEdge");
     }
     public void unlockEvent(){
+        isUnlocked = true;
+        Debug.Log("Unlocking");
         setLimiters(false);
         vmCamera.Follow = previousFollow;
         vmCamera.LookAt = previousTarget;
@@ -51,7 +54,7 @@ public class LockingEvent : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player") && !locked){
+        if(other.CompareTag("Player") && !locked && !isUnlocked){
             locked = true;
             lockEvent();
         }
