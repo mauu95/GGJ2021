@@ -79,13 +79,46 @@ public class DialogueManager : MonoBehaviour
     new Sentence("giove", "Then I will have to stop you. Come, my moons, it's time to fight.")
     };
 
+    Sentence[] dialogue6 =
+    {
+    new Sentence("marte", "So you've made it, after all. Everyone thought you would have ceased"),
+    new Sentence("marte", "to be a bother by now. You needn't be scared, little one, I might be known"),
+    new Sentence("marte", "as the God of War, but I don't want to fight you."),
+    new Sentence("found", "Good to know, do you think the others will?"),
+    new Sentence("marte", "You can bet on it. The next lady you'll meet is quite dangerous, we"),
+    new Sentence("marte", "think she has some kind of parasites, you should be careful. I'm afraid"),
+    new Sentence("marte", "they will try to conquer me as well, but I won't let them.")
+    };
+
+    Sentence[] dialogue7 =
+    {
+    new Sentence("terra", "Who are you? What do you want from me?"),
+    new Sentence("terra", "Go away, I will end up hurting you even if I don't want to."),
+    new Sentence("found", "Why? What has happened to you?"),
+    new Sentence("terra", "They call themselves humans. If they get on your surface they'll pollute"),
+    new Sentence("terra", "and consume everything they can. Stay away or they will come for you!")
+    };
+
+    ArrayList dialogues;
+
+    private void Start()
+    {
+        dialogues = new ArrayList();
+        dialogues.Add(dialogue1);
+        dialogues.Add(dialogue2);
+        dialogues.Add(dialogue3);
+        dialogues.Add(dialogue4);
+        dialogues.Add(dialogue5);
+        dialogues.Add(dialogue6);
+        dialogues.Add(dialogue7);
+    }
+
     public void Play(Sentence sentence)
     {
         if (!tb)
             tb = TextBox.instance;
 
-        if (!tb.isActiveAndEnabled)
-            tb.gameObject.SetActive(true);
+        tb.gameObject.SetActive(true);
 
         tb.SetCharIMG(sentence.GetPlanetID());
         tb.SetText(sentence.GetText());
