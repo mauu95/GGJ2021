@@ -23,6 +23,11 @@ public class TextBox : MonoBehaviour
     public TextMeshProUGUI text;
     public Image charIMG;
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void SetText(string text)
     {
         this.text.text = text;

@@ -4,18 +4,72 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    private TextBox tb;
-    Sentence s1 = new Sentence("Sole", "aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaa");
+    #region Singleton
+    public static DialogueManager instance;
 
-    private void Start()
+    private void Awake()
     {
-        tb = TextBox.instance;
-        Play(s1);
+        if (instance != null)
+            return;
+
+        instance = this;
     }
+
+    #endregion
+
+
+    private TextBox tb;
+
+    Sentence[] dialogue1 =
+    {
+        new Sentence("plutone", "Hello planet! Are you lost? "),
+        new Sentence("found", "a bello"),
+        new Sentence("plutone", "babbalucco")
+    };
 
     public void Play(Sentence sentence)
     {
+        if (!tb)
+            tb = TextBox.instance;
+
+        if (!tb.isActiveAndEnabled)
+            tb.gameObject.SetActive(true);
+
         tb.SetCharIMG(sentence.GetPlanetID());
         tb.SetText(sentence.GetText());
     }
+
+    private IEnumerator Deactivate(float n) {
+        yield return new WaitForSeconds(n);
+        tb.gameObject.SetActive(false);
+    }
+
+    public void Play(string planet, string text)
+    {
+        Play(new Sentence(planet, text));
+    }
+
+    public void PlayDialogue(int n){
+        Sentence[] dialogue = dialogue1;
+        StartCoroutine(PlayDialogueCoroutine(dialogue));
+    }
+
+    public IEnumerator PlayDialogueCoroutine(Sentence[] dialogue)
+    {
+        foreach(Sentence s in dialogue)
+        {
+            Play(s);
+            yield return StartCoroutine(WaitForKeyDown(KeyCode.Return));
+            yield return new WaitForEndOfFrame();
+        }
+
+        tb.gameObject.SetActive(false);
+    }
+
+    IEnumerator WaitForKeyDown(KeyCode keyCode)
+    {
+        while (!Input.GetKeyUp(keyCode))
+            yield return null;
+    }
+
 }
