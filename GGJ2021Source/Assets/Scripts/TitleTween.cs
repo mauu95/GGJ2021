@@ -7,6 +7,7 @@ public class TitleTween : MonoBehaviour
 
     private void Start()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Ambient/FadeIn", gameObject.transform.position);
         Tween();
     }
 
@@ -14,6 +15,6 @@ public class TitleTween : MonoBehaviour
     {
         LeanTween.cancel(gameObject);
 
-        LeanTween.scale(gameObject, new Vector3(3,3,3), tweenTime).setEasePunch();
+        LeanTween.scale(gameObject, new Vector3(2, 2, 2), tweenTime).setEasePunch();
     }
 }
