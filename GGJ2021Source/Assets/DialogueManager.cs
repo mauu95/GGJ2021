@@ -22,9 +22,20 @@ public class DialogueManager : MonoBehaviour
 
     Sentence[] dialogue1 =
     {
-        new Sentence("plutone", "Hello planet! Are you lost? "),
-        new Sentence("found", "a bello"),
-        new Sentence("plutone", "babbalucco")
+    new Sentence("plutone", "Hello planet! Are you lost?"),
+    new Sentence("found", "Well, actually my name is Found. My galaxy was destroyed by"),
+    new Sentence("found", "a black hole, but I managed to escape and now I’m looking"),
+    new Sentence("found", "for a new system to call my home."),
+    new Sentence("plutone", "You could stay here! I mean, not all planets will be happy,"),
+    new Sentence("plutone", "they don’t even consider me as one of them. Anyway, if you"),
+    new Sentence("plutone", "convince the Sun I bet he’ll give you a place in our orbit."),
+    new Sentence("found", "Convince?"),
+    new Sentence("plutone", "You come from the stars. Use their power to show the others"),
+    new Sentence("plutone", "you’re worthy of our System. And be careful: your satellites"),
+    new Sentence("plutone", "are fundamental for your balance in the universe, without"),
+    new Sentence("plutone", "them you are nothing. If you don’t want to lose them you"),
+    new Sentence("plutone", "should be careful and avoid getting hit."),
+    new Sentence("plutone", "Now good luck, Found!")
     };
 
     public void Play(Sentence sentence)
@@ -60,7 +71,7 @@ public class DialogueManager : MonoBehaviour
         {
             Play(s);
             yield return StartCoroutine(WaitForKeyDown(KeyCode.Return));
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01f);
         }
 
         tb.gameObject.SetActive(false);
