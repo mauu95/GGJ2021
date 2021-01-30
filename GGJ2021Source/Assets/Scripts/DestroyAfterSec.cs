@@ -8,12 +8,6 @@ public class DestroyAfterSec : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Destroy());
-    }
-
-    private IEnumerator Destroy()
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(this.gameObject);
+        Destroy(gameObject,seconds);
     }
 }

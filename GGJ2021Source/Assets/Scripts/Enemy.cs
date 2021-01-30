@@ -37,8 +37,9 @@ public class Enemy : MonoBehaviour
     }
 
     private void attackBehaviour(){
+        if(invulnerable) return;
         Vector3 attackOrigin = transform.position;
-        Vector3 attackDirection = player.position - transform.position;
+        Vector3 attackDirection = (player.position - transform.position).normalized;
         timeFromLastAttack += Time.deltaTime;
         if(timeFromLastAttack > attackFrequency){
             timeFromLastAttack = 0f;
