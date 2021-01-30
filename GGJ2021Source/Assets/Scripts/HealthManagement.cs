@@ -9,7 +9,12 @@ public class HealthManagement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy")) _playerHealth.LoseLife();
+        if (other.CompareTag("Enemy"))
+        {
+            _playerHealth.LoseLife();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Hit", transform.position);
+        }
+
         if (other.CompareTag("Satellite")) _playerHealth.AddLife(other.gameObject);
     }
 }
