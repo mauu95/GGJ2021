@@ -60,7 +60,7 @@ public class DialogueManager : MonoBehaviour
         {
             Play(s);
             yield return StartCoroutine(WaitForKeyDown(KeyCode.Return));
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01f);
         }
 
         tb.gameObject.SetActive(false);
