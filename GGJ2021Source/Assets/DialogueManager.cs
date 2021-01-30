@@ -47,13 +47,78 @@ public class DialogueManager : MonoBehaviour
     new Sentence("nettuno", "We'll see about that.")
     };
 
+    Sentence[] dialogue3 =
+    {
+    new Sentence("urano", "So it's true, we have a visitor in our System. I heard you have"),
+    new Sentence("urano", "already met some of my fellow planets. Let me guess, Neptune didn't let"),
+    new Sentence("urano", "you move along without putting up a fight."),
+    new Sentence("found", "I beat him. What's his problem?"),
+    new Sentence("urano", "Oh, he has quite a cold heart. But I'm proud to admit I'm the coldest."),
+    new Sentence("found", "You are?"),
+    new Sentence("urano", "I must be. How else would I survive all the jokes the other planets"),
+    new Sentence("urano", "tell each other about me? But now I must let you go."),
+    new Sentence("urano", "You still have a hard journey ahead of you.")
+    };
+
+    Sentence[] dialogue4 =
+    {
+    new Sentence("saturno", "I can't believe Uranus let you through. Not that you will be able to"),
+    new Sentence("saturno", "take down my majestic rings easily anyway."),
+    new Sentence("saturno", "Come, let's see if your core is strong enough to beat me.")
+    };
+
+    Sentence[] dialogue5 =
+    {
+    new Sentence("giove", "I see you managed to beat Saturn. Now listen to me: I'm the big boss"),
+    new Sentence("giove", "on this side of the Asteroid Belt, so let me give you a piece of advice."),
+    new Sentence("giove", "The Sun will never accept you in our System, and neither will most of"),
+    new Sentence("giove", "the planets you'll meet from now on. Still, if you don't cross the Belt,"),
+    new Sentence("giove", "maybe there's still a chance you can go back and find another galaxy."),
+    new Sentence("found", "But I like it here, some planets have been nice to me and I'm too tired"),
+    new Sentence("found", "to go back into deep space."),
+    new Sentence("giove", "Then I will have to stop you. Come, my moons, it's time to fight.")
+    };
+
+    Sentence[] dialogue6 =
+    {
+    new Sentence("marte", "So you've made it, after all. Everyone thought you would have ceased"),
+    new Sentence("marte", "to be a bother by now. You needn't be scared, little one, I might be known"),
+    new Sentence("marte", "as the God of War, but I don't want to fight you."),
+    new Sentence("found", "Good to know, do you think the others will?"),
+    new Sentence("marte", "You can bet on it. The next lady you'll meet is quite dangerous, we"),
+    new Sentence("marte", "think she has some kind of parasites, you should be careful. I'm afraid"),
+    new Sentence("marte", "they will try to conquer me as well, but I won't let them.")
+    };
+
+    Sentence[] dialogue7 =
+    {
+    new Sentence("terra", "Who are you? What do you want from me?"),
+    new Sentence("terra", "Go away, I will end up hurting you even if I don't want to."),
+    new Sentence("found", "Why? What has happened to you?"),
+    new Sentence("terra", "They call themselves humans. If they get on your surface they'll pollute"),
+    new Sentence("terra", "and consume everything they can. Stay away or they will come for you!")
+    };
+
+    ArrayList dialogues;
+
+    private void Start()
+    {
+        dialogues = new ArrayList();
+        dialogues.Add(dialogue1);
+        dialogues.Add(dialogue2);
+        dialogues.Add(dialogue3);
+        dialogues.Add(dialogue4);
+        dialogues.Add(dialogue5);
+        dialogues.Add(dialogue6);
+        dialogues.Add(dialogue7);
+    }
+
     public void Play(Sentence sentence)
     {
         if (!tb)
             tb = TextBox.instance;
 
-        if (!tb.isActiveAndEnabled)
-            tb.gameObject.SetActive(true);
+        tb.gameObject.SetActive(true);
 
         tb.SetCharIMG(sentence.GetPlanetID());
         tb.SetText(sentence.GetText());
