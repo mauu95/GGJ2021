@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
             health -= 1;
         }
         if(health <=0){
-            unlockEvent.unlockEvent();
+            unlockEvent.UnlockEvent();
             Destroy(gameObject);
         }
     }

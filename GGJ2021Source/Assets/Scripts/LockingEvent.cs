@@ -8,6 +8,7 @@ public class LockingEvent : MonoBehaviour
     private Cinemachine.CinemachineVirtualCamera vmCamera;
     private Transform previousTarget;
     private Transform previousFollow;
+    private Vector3 originialPos;
     private Transform[] limiters;
     private bool locked = false;
     private bool isUnlocked = false;
@@ -16,6 +17,7 @@ public class LockingEvent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        originialPos = transform.position;
         maincam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         vmCamera = GameObject.FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();
         List<Transform> limitingCollider = new List<Transform>();
@@ -26,7 +28,7 @@ public class LockingEvent : MonoBehaviour
         }
         limiters = limitingCollider.ToArray();
         //fixOutOfBounds();
-        setLimiters(false);
+        SetLimiters(false);
     }
     private void Update() {
         CameraUtility.drawBounds(maincam);
@@ -35,19 +37,21 @@ public class LockingEvent : MonoBehaviour
     private void lockEvent(){
         previousTarget = vmCamera.LookAt;
         previousFollow = vmCamera.Follow;
+        transform.position = previousFollow.position;
         vmCamera.Follow = transform;
         vmCamera.LookAt = transform;
-        StartCoroutine("moveLimitersToEdge");
+        StartCoroutine("MoveLimitersToEdge");
+        StartCoroutine("MoveToOriginalPosition");
     }
-    public void unlockEvent(){
+    public void UnlockEvent(){
         isUnlocked = true;
         Debug.Log("Unlocking");
-        setLimiters(false);
+        SetLimiters(false);
         vmCamera.Follow = previousFollow;
         vmCamera.LookAt = previousTarget;
     }
 
-    private void setLimiters(bool state){
+    private void SetLimiters(bool state){
         foreach(Transform l in limiters){
             l.gameObject.SetActive(state);
         }
@@ -60,7 +64,8 @@ public class LockingEvent : MonoBehaviour
         }
     }
 
-    private void fixOutOfBounds(){
+    [System.Obsolete("Not Used")]
+    private void FixOutOfBounds(){
         Transform rMost = getRightMostLimiter();
         Transform lMost = getLeftMostLimiter();
         if((lMost && rMost) && (transform.position.x >= rMost.position.x || transform.position.x <= lMost.position.x)){
@@ -70,7 +75,20 @@ public class LockingEvent : MonoBehaviour
         }
     }
 
-    private IEnumerator moveLimitersToEdge(){
+    private IEnumerator MoveToOriginalPosition(){
+        float lerp = 0f;
+        Vector3 oldPos = transform.position;
+        yield return new WaitForEndOfFrame();
+        while(lerp <= 1){
+            lerp += Time.deltaTime;
+            transform.position = Vector3.Lerp(oldPos,originialPos,lerp);
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
+    }
+
+
+    private IEnumerator MoveLimitersToEdge(){
         yield return new WaitForSeconds(0.1f);
         Transform rMost = getRightMostLimiter();
         yield return null;
@@ -83,7 +101,7 @@ public class LockingEvent : MonoBehaviour
         lBoundPos.x = camBound.center.x - camBound.width/2;
         lMost.position = lBoundPos;
         yield return null;
-        setLimiters(true);
+        SetLimiters(true);
     }
 
     private Transform getRightMostLimiter(){
