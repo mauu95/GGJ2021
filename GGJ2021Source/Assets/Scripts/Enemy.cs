@@ -6,8 +6,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField][Range(0.1f,10f)] private float attackFrequency = 0.8f;
+    [SerializeField][Range(0.01f,0.9f)] private float freqVariability = 0.2f;
     [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
-    [SerializeField][Range(1f,100f)] private float health = 10f;
+
+    private float nextAttackTime = 0f;
+    [Range(1f,100f)] public float health = 10f;
     [SerializeField] private LockingEvent unlockEvent;
     private Vector3[] attackPositions;
     private int currentPos;
@@ -20,6 +23,7 @@ public class Enemy : MonoBehaviour
 
 
     private void Awake() {
+        nextAttackTime = attackFrequency + Random.Range(-freqVariability,freqVariability);
         List<Vector3> positions = new List<Vector3>();
         Transform posits = transform.Find("Positions");
         for(int i=0;i<posits.childCount;i++){
@@ -43,9 +47,10 @@ public class Enemy : MonoBehaviour
         Vector3 attackDirection = (player.position - transform.position).normalized;
         timeFromLastAttack += Time.deltaTime;
         if(invulnerable) return;
-        if(timeFromLastAttack > attackFrequency){
+        if(timeFromLastAttack > nextAttackTime){
             timeFromLastAttack = 0f;
             shooter.Shoot(attackOrigin,attackDirection);
+            nextAttackTime = attackFrequency + Random.Range(-freqVariability,freqVariability);
         }
 
     }
