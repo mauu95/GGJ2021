@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     private bool _isStillAlive;
 
     private void Awake() => _isStillAlive = true;
-    
+
     public void LoseLife()
     {
         _isStillAlive = false;
@@ -22,11 +23,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
-        if (!_isStillAlive)
-        {
-            // END GAME!
-            Debug.Log("YOU DIED!");
-        }
+        if (!_isStillAlive) SceneManager.LoadScene("GameOver");
     }
 
     public void AddLife(GameObject satellite)
