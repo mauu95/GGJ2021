@@ -9,7 +9,7 @@ public class LockingEvent : MonoBehaviour
     private Transform previousTarget;
     private Transform previousFollow;
     private Transform[] limiters;
-
+    private bool locked = false;
     private Camera maincam;
 
     // Start is called before the first frame update
@@ -51,7 +51,8 @@ public class LockingEvent : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
+        if(other.CompareTag("Player") && !locked){
+            locked = true;
             lockEvent();
         }
     }
