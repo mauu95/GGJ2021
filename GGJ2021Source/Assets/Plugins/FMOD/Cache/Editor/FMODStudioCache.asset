@@ -34,11 +34,11 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637476056932569125
+  lastModified: 637476207267409240
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 700
+    Value: 942
   Exists: 1
 --- !u!114 &-7551019738726211792
 MonoBehaviour:
@@ -59,6 +59,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-7133290790289499600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ButtonClicked
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ButtonClicked
+  guid: d93bf1cb4e4d2641879ae8d2784690c9
+  Banks:
+  - {fileID: -6125321747765697067}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 900
 --- !u!114 &-6125321747765697067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +97,7 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637476056932559121
+  lastModified: 637476207267329456
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -99,6 +122,52 @@ MonoBehaviour:
   - Name: Desktop
     Value: 700
   Exists: 1
+--- !u!114 &-2023133351739502230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ButtonHover
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ButtonHover
+  guid: caac99dfa4804441a203bd89cae12e48
+  Banks:
+  - {fileID: -6125321747765697067}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
+--- !u!114 &-41731867127596162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Shooting
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Shooting
+  guid: 1ae1003b88816f4d8e27fafc70aecc40
+  Banks:
+  - {fileID: -6125321747765697067}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,14 +183,42 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -8026733085758238582}
   - {fileID: -6125321747765697067}
-  EditorEvents: []
+  EditorEvents:
+  - {fileID: 139148874383276885}
+  - {fileID: -41731867127596162}
+  - {fileID: 6294014583674314547}
+  - {fileID: -2023133351739502230}
+  - {fileID: -7133290790289499600}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6125321747765697067}
   StringsBanks:
   - {fileID: -8026733085758238582}
-  stringsBankWriteTime: 637476056932569125
+  stringsBankWriteTime: 637476207267409240
   cacheVersion: 6
+--- !u!114 &139148874383276885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Walk
+  guid: cf668f0b3eda08488e07f4b46f3bdfc9
+  Banks:
+  - {fileID: -6125321747765697067}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
 --- !u!114 &499062053902298191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +238,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6294014583674314547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Jump
+  guid: 78706e37ca1a894a98452948e8a7d1c6
+  Banks:
+  - {fileID: -6125321747765697067}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1150
 --- !u!114 &7114085600625948162
 MonoBehaviour:
   m_ObjectHideFlags: 0
