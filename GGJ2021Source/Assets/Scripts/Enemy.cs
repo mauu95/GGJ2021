@@ -32,13 +32,15 @@ public class Enemy : MonoBehaviour
             timeFromPosChange += Time.deltaTime;
         }
         else{
-            bool changePos = Random.value > 0.5f;
+            bool changePos = true;
             if(changePos){
                 int nextPos = Random.Range(0,attackPositions.Length);
                 while(nextPos == currentPos){
                     nextPos = Random.Range(0,attackPositions.Length);
                 }
                 StartCoroutine("moveToNewPos",nextPos);
+                timeFromPosChange = 0f;
+                canChangePos = false;
             }
         }
 
@@ -55,6 +57,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.Lerp(oldPos,targetPos,lerp);
             yield return new WaitForEndOfFrame();
         }
+        currentPos = nextPos;
         invulnerable = false;
         yield return null;
     }
