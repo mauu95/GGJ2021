@@ -89,9 +89,15 @@
 	</object>
 	<object class="MixerBusPanner" id="{2b7132dc-b5ae-4137-af0a-94e3463cea11}" />
 	<object class="SingleSound" id="{da4a6c6d-b1ee-4887-8ecc-70030c266a9b}">
+		<property name="length">
+			<value>0.35000000000000003</value>
+		</property>
 		<property name="timelockedOffset">
 			<value>1</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{9395b1bb-efa8-41f0-9bda-3704ea0ec1d6}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{6388cd75-65ef-49d4-8792-5d491a6fcbf0}</destination>
 		</relationship>
@@ -118,6 +124,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{249c097f-cd6a-4588-a19a-dbdc9579e756}" />
 	<object class="MixerBusFader" id="{f5e175a3-729b-4976-a987-a7d344049ac9}" />
+	<object class="FadeCurve" id="{9395b1bb-efa8-41f0-9bda-3704ea0ec1d6}">
+		<relationship name="startPoint">
+			<destination>{d3c4d573-190b-49a6-8154-1943e1b3674c}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{3f4031cc-5ee0-4cd5-a02d-ec3c5fd9495a}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{8d398565-54b7-4eda-bfa3-8d516c998521}">
 		<relationship name="effects">
 			<destination>{8c5431e3-f30e-4dd7-8d69-db2742a13e0e}</destination>
@@ -128,6 +142,25 @@
 	<object class="ThreeEQEffect" id="{f3cbf063-af12-41db-afeb-09c550214eea}">
 		<property name="lowGain">
 			<value>-11.5</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{d3c4d573-190b-49a6-8154-1943e1b3674c}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{3f4031cc-5ee0-4cd5-a02d-ec3c5fd9495a}">
+		<property name="position">
+			<value>0.35000000000000003</value>
+		</property>
+		<property name="value">
+			<value>0</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{8c5431e3-f30e-4dd7-8d69-db2742a13e0e}" />
