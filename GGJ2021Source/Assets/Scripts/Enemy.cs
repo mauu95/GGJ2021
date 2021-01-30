@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private bool invulnerable = false;
     private Transform player;
     private EnemyShooter shooter;
+    public bool active = false;
 
 
     private void Awake() {
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update() {
+        if(!active)return;
         movementBehaviour();
         attackBehaviour();
         GraphicsBehaviour();

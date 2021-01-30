@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RightHealth : MonoBehaviour
+public class RingHealth : MonoBehaviour
 {
     private Enemy enemy;
 

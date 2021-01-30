@@ -607,6 +607,7 @@ MonoBehaviour:
   timeToPosChange: 2.5
   health: 10
   unlockEvent: {fileID: 2134283669}
+  active: 0
 --- !u!114 &1143852657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,6 +1904,11 @@ PrefabInstance:
       propertyPath: unlockEvent
       value: 
       objectReference: {fileID: 2134283669}
+    - target: {fileID: 2358621615272612104, guid: 14b9f304b4c94874fa6b99e187c4fea1,
+        type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2358621615272612106, guid: 14b9f304b4c94874fa6b99e187c4fea1,
         type: 3}
       propertyPath: m_LocalPosition.x
