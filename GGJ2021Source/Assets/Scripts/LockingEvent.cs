@@ -1,36 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class LockingEvent : MonoBehaviour
 {
 
-    private GameObject mainCamera;
+    private Cinemachine.CinemachineVirtualCamera vmCamera;
     private Transform previousTarget;
+    private Transform previousFollow;
     private Transform[] limiters;
+    private bool locked = false;
+    private Camera maincam;
+
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        maincam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        vmCamera = GameObject.FindObjectOfType<Cinemachine.CinemachineVirtualCamera>();
         List<Transform> limitingCollider = new List<Transform>();
-        for( int i =0; i<transform.childCount;i++){
+        for(int i =0; i<transform.childCount;i++){
             if(transform.GetChild(i).TryGetComponent<BoxCollider2D>(out BoxCollider2D coll)){
                 limitingCollider.Add(transform.GetChild(i));
             }
         }
         limiters = limitingCollider.ToArray();
-        fixOutOfBounds();
+        //fixOutOfBounds();
         setLimiters(false);
+    }
+    private void Update() {
+        CameraUtility.drawBounds(maincam);
     }
 
     private void lockEvent(){
-        previousTarget = mainCamera.GetComponent<Camera2DFollow>().target;
-        mainCamera.GetComponent<Camera2DFollow>().target = mainCamera.transform;
-        setLimiters(true);
+        previousTarget = vmCamera.LookAt;
+        previousFollow = vmCamera.Follow;
+        vmCamera.Follow = transform;
+        vmCamera.LookAt = transform;
+        StartCoroutine("moveLimitersToEdge");
     }
     public void unlockEvent(){
         setLimiters(false);
-        mainCamera.GetComponent<Camera2DFollow>().target = previousTarget;
+        vmCamera.Follow = previousFollow;
+        vmCamera.LookAt = previousTarget;
     }
 
     private void setLimiters(bool state){
@@ -40,7 +51,8 @@ public class LockingEvent : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
+        if(other.CompareTag("Player") && !locked){
+            locked = true;
             lockEvent();
         }
     }
@@ -48,26 +60,42 @@ public class LockingEvent : MonoBehaviour
     private void fixOutOfBounds(){
         Transform rMost = getRightMostLimiter();
         Transform lMost = getLeftMostLimiter();
-        if(transform.position.x >= rMost.position.x || transform.position.x <= lMost.position.x){
+        if((lMost && rMost) && (transform.position.x >= rMost.position.x || transform.position.x <= lMost.position.x)){
             Vector3 newPos = transform.position;
             newPos.x = lMost.position.x + GetComponent<BoxCollider2D>().size.x+0.1f;
             transform.position = newPos;
         }
     }
 
+    private IEnumerator moveLimitersToEdge(){
+        yield return new WaitForSeconds(0.1f);
+        Transform rMost = getRightMostLimiter();
+        yield return null;
+        Transform lMost = getLeftMostLimiter();
+        Rect camBound = CameraUtility.getCameraBounds(maincam);
+        Vector3 rBoundPos = rMost.position;
+        rBoundPos.x = camBound.center.x + camBound.width/2;
+        rMost.position = rBoundPos;
+        Vector3 lBoundPos = lMost.position;
+        lBoundPos.x = camBound.center.x - camBound.width/2;
+        lMost.position = lBoundPos;
+        yield return null;
+        setLimiters(true);
+    }
+
     private Transform getRightMostLimiter(){
-        Transform rightMost = limiters[0];
+        Transform rightMost = null;
         foreach(Transform l in limiters){
-            if(l.position.x>rightMost.position.x){
+            if(!rightMost || l.position.x>rightMost.position.x){
                 rightMost = l;
             } 
         }
         return rightMost;
     }
     private Transform getLeftMostLimiter(){
-        Transform leftMost = limiters[0];
+        Transform leftMost = null;
         foreach(Transform l in limiters){
-            if(l.position.x<leftMost.position.x){
+            if(!leftMost || l.position.x<leftMost.position.x ){
                 leftMost = l;
             } 
         }
