@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField][Range(0.1f,10f)] private float attackFrequency = 0.8f;
+    [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
     private Vector3[] attackPositions;
     private int currentPos;
-    [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
     private bool canChangePos = false;
     private float timeFromPosChange = 0f;
-
+    private float timeFromLastAttack = 0f;
     private bool invulnerable = false;
+    private Transform player;
+    private EnemyShooter shooter;
+
 
     private void Awake() {
         List<Vector3> positions = new List<Vector3>();
@@ -22,9 +26,28 @@ public class Enemy : MonoBehaviour
         attackPositions = positions.ToArray();
         currentPos = 0;
         transform.position = attackPositions[currentPos];
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        shooter = GetComponent<EnemyShooter>();
     }
 
     private void Update() {
+        movementBehaviour();
+        attackBehaviour();
+
+    }
+
+    private void attackBehaviour(){
+        Vector3 attackOrigin = transform.position;
+        Vector3 attackDirection = player.position - transform.position;
+        timeFromLastAttack += Time.deltaTime;
+        if(timeFromLastAttack > attackFrequency){
+            timeFromLastAttack = 0f;
+            shooter.Shoot(attackOrigin,attackDirection);
+        }
+
+    }
+
+    private void movementBehaviour(){
         if(timeFromPosChange > timeToPosChange){
                 canChangePos = true;
         }
@@ -32,7 +55,7 @@ public class Enemy : MonoBehaviour
             timeFromPosChange += Time.deltaTime;
         }
         else{
-            bool changePos = true;
+            bool changePos = Random.value > 0.5f;
             if(changePos){
                 int nextPos = Random.Range(0,attackPositions.Length);
                 while(nextPos == currentPos){
@@ -43,7 +66,6 @@ public class Enemy : MonoBehaviour
                 canChangePos = false;
             }
         }
-
     }
 
     private IEnumerator moveToNewPos(int nextPos){
