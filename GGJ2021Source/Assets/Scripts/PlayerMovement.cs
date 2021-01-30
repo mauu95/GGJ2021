@@ -56,6 +56,6 @@ public class PlayerMovement : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
+        transform.Find("GFX").GetComponent<SpriteRenderer>().flipX = !facingRight;
     }
 }

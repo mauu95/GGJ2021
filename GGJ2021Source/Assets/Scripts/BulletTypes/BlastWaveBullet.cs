@@ -12,9 +12,9 @@ public class BlastWaveBullet : Bullet
     public override void ShootBehaviour(Vector3 spawnPoint, Vector3 shootDir)
     {
         base.ShootBehaviour(spawnPoint, shootDir);
-        Vector3 currentDir = Vector3.left;
+        Vector3 currentDir = Vector3.right;
         for(int i =0;i<bulletAmount;i++){
-            currentDir = Quaternion.AngleAxis(360f * i/bulletAmount,Vector3.forward) * Vector3.left;
+            currentDir = Quaternion.AngleAxis(360f * i/bulletAmount,Vector3.forward) * Vector3.right;
             GameObject shotB = Instantiate(shotBullet,spawnPoint,Quaternion.AngleAxis(360f * i/bulletAmount,Vector3.forward));
             shotB.GetComponent<Bullet>().ShootBehaviour(spawnPoint,currentDir);
         }
