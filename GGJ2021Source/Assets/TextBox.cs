@@ -23,12 +23,6 @@ public class TextBox : MonoBehaviour
     public TextMeshProUGUI text;
     public Image charIMG;
 
-    private void Start()
-    {
-        SetText("Questo è un messaggio edidato via script");
-        SetCharIMG(0);
-    }
-
     public void SetText(string text)
     {
         this.text.text = text;
