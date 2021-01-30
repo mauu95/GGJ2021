@@ -9,6 +9,7 @@ public class AsteroidGenerator : MonoBehaviour
     public float VerticalRange = 10f;
     public float HorizontalRange = 20f;
     public float GenerateEveryTotSec = 2f;
+    public bool active = false;
 
     private void Start()
     {
@@ -17,6 +18,9 @@ public class AsteroidGenerator : MonoBehaviour
 
     private void Generate()
     {
+        if (!active)
+            return;
+
         float speed = Random.Range(30, 80);
         float rotationSpeed = Random.Range(10, 20);
         Vector3 scale = new Vector3(Random.Range(0.2f, 0.6f), Random.Range(0.1f, 0.8f), 1);

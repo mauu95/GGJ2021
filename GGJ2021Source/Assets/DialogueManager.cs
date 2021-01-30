@@ -99,6 +99,20 @@ public class DialogueManager : MonoBehaviour
     new Sentence("terra", "and consume everything they can. Stay away or they will come for you!")
     };
 
+    Sentence[] dialogue8 =
+    {
+    new Sentence("venere", "Ah! Here you are. Surprised to find such a charming beauty? Don't let"),
+    new Sentence("venere", "the looks fool you, I'm as fierce as my fellow planets and I won't"),
+    new Sentence("venere", "let you get to the Sun.")
+    };
+
+    Sentence[] dialogue9 =
+    {
+    new Sentence("mercurio", "Oh hi! Pretty hot around here, isn't it? I like it, I'm so close"),
+    new Sentence("mercurio", "to the Sun no one can come here and try to hurt me. You could settle next"),
+    new Sentence("mercurio", "to me. Now go on, you've made it to the Big Boss!")
+    };
+
     ArrayList dialogues;
 
     private void Start()
@@ -111,6 +125,8 @@ public class DialogueManager : MonoBehaviour
         dialogues.Add(dialogue5);
         dialogues.Add(dialogue6);
         dialogues.Add(dialogue7);
+        dialogues.Add(dialogue8);
+        dialogues.Add(dialogue9);
     }
 
     public void Play(Sentence sentence)
