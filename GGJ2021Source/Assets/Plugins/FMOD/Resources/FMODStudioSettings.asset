@@ -267,8 +267,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: FMODProjectAssets/GGJ2021_FMODProject.fspro
-  sourceBankPath: FMODProjectAssets\Build
+  sourceProjectPath: GGJ2021_FMOD/GGJ2021_FMOD.fspro
+  sourceBankPath: GGJ2021_FMOD\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

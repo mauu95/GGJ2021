@@ -62,6 +62,8 @@ crashlytics-build.properties
 .idea/
 
 ### FMOD Unity Integration ###
+!/GGJ2021Source/GGJ2021_FMOD/Build
+!/GGJ2021Source/GGJ2021_FMOD/Plugins
 # Never ignore DLLs in the FMOD subfolder, so make sure that the FMOD-folder is in the correct path.
 !/[Aa]ssets/Plugins/FMOD/**/*.dll
 
