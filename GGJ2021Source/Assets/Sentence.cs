@@ -16,7 +16,7 @@ public class Sentence
 
     public int GetPlanetID()
     {
-        string[] planets = { "sole", "giove", "saturno", "terra", "venere", "nettuno" };
+        string[] planets = {"found", "plutone", "nettuno", "urano", "saturno", "giove", "marte", "terra", "venere", "mercurio", "sole"};
         return Array.IndexOf(planets, planet.ToLower());
 
 
