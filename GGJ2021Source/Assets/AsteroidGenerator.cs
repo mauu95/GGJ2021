@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AsteroidGenerator : MonoBehaviour
 {
-    public GameObject AsteroidPrefab;
+    public GameObject[] AsteroidPrefabs;
     public Transform playerPosition;
     public float VerticalRange = 10f;
     public float HorizontalRange = 20f;
@@ -15,17 +15,11 @@ public class AsteroidGenerator : MonoBehaviour
         InvokeRepeating("Generate", 1.0f, GenerateEveryTotSec);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-            Generate();
-    }
-
     private void Generate()
     {
-        float size = Random.Range(0.4f, 0.8f);
         float speed = Random.Range(30, 80);
         float rotationSpeed = Random.Range(10, 20);
+        Vector3 scale = new Vector3(Random.Range(0.2f, 0.6f), Random.Range(0.1f, 0.8f), 1);
 
 
         bool horizontal = true;
@@ -50,10 +44,9 @@ public class AsteroidGenerator : MonoBehaviour
         }
 
 
-        GameObject aster = Instantiate(AsteroidPrefab, position, Quaternion.identity);
+        GameObject aster = Instantiate(AsteroidPrefabs[Random.Range(0,AsteroidPrefabs.Length)], position, Quaternion.identity);
         Rigidbody2D rb = aster.GetComponent<Rigidbody2D>();
 
-        Vector3 scale = new Vector3(Random.Range(0.2f, 0.6f), Random.Range(0.1f, 0.8f), 1);
         aster.transform.localScale = scale;
 
         rb.AddTorque(rotationSpeed * 10);
