@@ -51,5 +51,6 @@ public class PlayerShooting : MonoBehaviour
         b.transform.position = firePoint.position;
         b.transform.rotation = Quaternion.Euler(0, 0, rotation);
         b.GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Shooting", b.transform.position);
     }
 }

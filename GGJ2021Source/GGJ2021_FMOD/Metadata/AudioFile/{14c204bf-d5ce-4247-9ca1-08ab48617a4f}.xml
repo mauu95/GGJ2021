@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{14c204bf-d5ce-4247-9ca1-08ab48617a4f}">
+		<property name="assetPath">
+			<value>fadeIn.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0266666666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{04c5a72f-0b72-442e-9515-fa477b8d45af}</destination>
+		</relationship>
+	</object>
+</objects>
