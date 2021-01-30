@@ -34,7 +34,7 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637476207267409240
+  lastModified: 637476232177607737
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -97,7 +97,7 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637476207267329456
+  lastModified: 637476232177527951
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 1000
+  Length: 350
 --- !u!114 &-41731867127596162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   - {fileID: -6125321747765697067}
   StringsBanks:
   - {fileID: -8026733085758238582}
-  stringsBankWriteTime: 637476207267409240
+  stringsBankWriteTime: 637476232177607737
   cacheVersion: 6
 --- !u!114 &139148874383276885
 MonoBehaviour:
