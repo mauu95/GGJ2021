@@ -34,11 +34,11 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637476240166318614
+  lastModified: 637476241989486095
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 986
+    Value: 1032
   Exists: 1
 --- !u!114 &-7551019738726211792
 MonoBehaviour:
@@ -97,10 +97,33 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637476240166218914
+  lastModified: 637476241989386368
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-5001638342396440171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambient/FadeOut
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient/FadeOut
+  guid: 4f85121cca2e3c498cdd818348227d16
+  Banks:
+  - {fileID: -6125321747765697067}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-2651426780091227149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,12 +213,13 @@ MonoBehaviour:
   - {fileID: -2023133351739502230}
   - {fileID: -7133290790289499600}
   - {fileID: 6148101886080777808}
+  - {fileID: -5001638342396440171}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6125321747765697067}
   StringsBanks:
   - {fileID: -8026733085758238582}
-  stringsBankWriteTime: 637476240166318614
+  stringsBankWriteTime: 637476241989486095
   cacheVersion: 6
 --- !u!114 &139148874383276885
 MonoBehaviour:
