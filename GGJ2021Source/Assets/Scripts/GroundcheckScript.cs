@@ -13,7 +13,8 @@ public class GroundcheckScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        pc.setIsGrounded(true);
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            pc.setIsGrounded(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -20,6 +20,7 @@ public class TextBox : MonoBehaviour
     #endregion
 
     public Sprite[] characterSprites;
+    public Sprite defaultSprite;
     public TextMeshProUGUI text;
     public Image charIMG;
 
@@ -35,8 +36,9 @@ public class TextBox : MonoBehaviour
 
     public void SetCharIMG(int n)
     {
-        if (n < 0 || n > characterSprites.Length)
-            charIMG.sprite = null;
-        charIMG.sprite = characterSprites[n];
+        if (n < 0 || n >= characterSprites.Length)
+            charIMG.sprite = defaultSprite;
+        else
+            charIMG.sprite = characterSprites[n];
     }
 }

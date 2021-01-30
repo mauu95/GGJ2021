@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Pluto : MonoBehaviour
 {
+    private bool interacted = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DialogueManager.instance.PlayDialogue(1);
+        if (interacted)
+        {
+            return;
+        }
+        else
+        {
+            DialogueManager.instance.PlayDialogue(1);
+            interacted = true;
+        }
     }
 }
