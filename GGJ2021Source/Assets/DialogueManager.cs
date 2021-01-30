@@ -23,9 +23,8 @@ public class DialogueManager : MonoBehaviour
     Sentence[] dialogue1 =
     {
     new Sentence("plutone", "Hello planet! Are you lost?"),
-    new Sentence("found", "Well, actually my name is Found. My galaxy was destroyed by"),
-    new Sentence("found", "a black hole, but I managed to escape and now I’m looking"),
-    new Sentence("found", "for a new system to call my home."),
+    new Sentence("found", "Well, actually my name is Found. My galaxy was destroyed by a black hole"),
+    new Sentence("found", "but I managed to escape and now Im looking for a new system to call my home"),
     new Sentence("plutone", "You could stay here! I mean, not all planets will be happy,"),
     new Sentence("plutone", "they don’t even consider me as one of them. Anyway, if you"),
     new Sentence("plutone", "convince the Sun I bet he’ll give you a place in our orbit."),
@@ -35,7 +34,17 @@ public class DialogueManager : MonoBehaviour
     new Sentence("plutone", "are fundamental for your balance in the universe, without"),
     new Sentence("plutone", "them you are nothing. If you don’t want to lose them you"),
     new Sentence("plutone", "should be careful and avoid getting hit."),
-    new Sentence("plutone", "Now good luck, Found!")
+    new Sentence("plutone", "Now good luck, Found!"),
+    new Sentence("None", "WASD = move, SPACE = jump, MOUSE SX = shoot")
+    
+    };
+
+    Sentence[] dialogue2 =
+    {
+    new Sentence("nettuno", "Who are you? How dare you disturb me?"),
+    new Sentence("found", "Hello, I'm Found, I come from another galaxy."),
+    new Sentence("found", "I just need a place to stay."),
+    new Sentence("nettuno", "We'll see about that.")
     };
 
     public void Play(Sentence sentence)

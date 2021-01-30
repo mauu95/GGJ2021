@@ -508,7 +508,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterSprites.Array.data[7]
       value: 
-      objectReference: {fileID: 21300000, guid: 37c7345238f63d244af312b23d778989,
+      objectReference: {fileID: 21300000, guid: 7ed4c853c320f154194e50f1327c6b41,
         type: 3}
     - target: {fileID: 2756496450738267356, guid: 5c7be75f6bad4c041916edcc6b0ab5ab,
         type: 3}
@@ -520,7 +520,7 @@ PrefabInstance:
         type: 3}
       propertyPath: characterSprites.Array.data[9]
       value: 
-      objectReference: {fileID: 21300000, guid: 37c7345238f63d244af312b23d778989,
+      objectReference: {fileID: 21300000, guid: 77f66a87b16bcee44810af2e77e65499,
         type: 3}
     - target: {fileID: 2756496450738267356, guid: 5c7be75f6bad4c041916edcc6b0ab5ab,
         type: 3}
