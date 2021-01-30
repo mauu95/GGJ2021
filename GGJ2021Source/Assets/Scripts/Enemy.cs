@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField][Range(0.1f,10f)] private float attackFrequency = 0.8f;
     [SerializeField][Range(0.1f,10f)] private float timeToPosChange = 5f;
+    [SerializeField][Range(1f,100f)] private float health = 10f;
     private Vector3[] attackPositions;
     private int currentPos;
     private bool canChangePos = false;
@@ -83,5 +84,14 @@ public class Enemy : MonoBehaviour
         currentPos = nextPos;
         invulnerable = false;
         yield return null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag("Bullet")){
+            health -= 1;
+        }
+        if(health <=0){
+            Destroy(gameObject);
+        }
     }
 }

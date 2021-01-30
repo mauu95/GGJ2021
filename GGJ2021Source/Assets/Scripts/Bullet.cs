@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private string[] targetTags;
     protected Vector3 origin;
     protected Vector3 direction;
     private float timeToLive =20f;
@@ -13,9 +14,12 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,timeToLive);
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Player")){
-            Destroy(gameObject);
+    virtual protected void OnTriggerEnter2D(Collider2D other) {
+        foreach(string t in targetTags){
+            if(other.CompareTag(t)){
+                Destroy(gameObject);
+                return;
+            }
         }
     }
 }

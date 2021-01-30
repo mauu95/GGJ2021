@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d6ebbb8d5a96043996f645d2a2a07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTags:
+  - Player
+  - Bullet
   speed: 20
 --- !u!50 &1684050020399692451
 Rigidbody2D:
