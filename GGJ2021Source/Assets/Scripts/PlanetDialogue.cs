@@ -9,6 +9,8 @@ public class PlanetDialogue : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.gameObject.CompareTag("Player"))
+            return;
         LaunchDialogue();
     }
     protected virtual void LaunchDialogue(){
