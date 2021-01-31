@@ -6,6 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     #region Singleton
     public static DialogueManager instance;
+    public static bool dialogueRunning{get;private set;}
 
     private void Awake()
     {
@@ -157,13 +158,14 @@ public class DialogueManager : MonoBehaviour
 
     public IEnumerator PlayDialogueCoroutine(Sentence[] dialogue)
     {
+        dialogueRunning = true;
         foreach(Sentence s in dialogue)
         {
             Play(s);
             yield return StartCoroutine(WaitForKeyDown(KeyCode.Return));
             yield return new WaitForSeconds(0.01f);
         }
-
+        dialogueRunning = false;
         tb.gameObject.SetActive(false);
     }
 
