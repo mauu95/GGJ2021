@@ -6,10 +6,17 @@ public class PlanetDialogue : MonoBehaviour
 {
     private bool interacted = false;
     public int dialogueNumber;
+    [SerializeField] private LockingEvent unlockEvent;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         LaunchDialogue();
+    }
+    protected virtual void DialogueEnd(){
+        if(!unlockEvent) return;
+        else{
+            unlockEvent.UnlockEvent();
+        }
     }
     protected virtual void LaunchDialogue(){
         if (interacted)
@@ -21,5 +28,14 @@ public class PlanetDialogue : MonoBehaviour
             DialogueManager.instance.PlayDialogue(dialogueNumber);
             interacted = true;
         }
+        StartCoroutine("WaitForDialogueEnd");
+    }
+    protected IEnumerator WaitForDialogueEnd(){
+        yield return new WaitForSeconds(0.2f);
+        while(DialogueManager.dialogueRunning){
+            yield return new WaitForEndOfFrame();
+        }
+        DialogueEnd();
+        yield return null;
     }
 }

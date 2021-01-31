@@ -8,9 +8,12 @@ public class BossDialogue : PlanetDialogue
     private void Awake() {
         boss = GetComponentInParent<Enemy>();
     }
-    protected override void LaunchDialogue()
+
+    
+    protected override void DialogueEnd()
     {
-        base.LaunchDialogue();
+        boss.active = true;
     }
+
     
 }
