@@ -10,6 +10,7 @@ public class LifeUp : MonoBehaviour
     float angle = 0f;
     float angleRate = 5f;
     Vector3 originalPos;
+    
     private void Awake() {
         originalPos = transform.position;
         Transform spriteColl = transform.Find("Sprites");
@@ -18,6 +19,7 @@ public class LifeUp : MonoBehaviour
         }
         spriteColl.GetChild(Random.Range(0,spriteColl.childCount)).gameObject.SetActive(true);
     }
+    
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("Player")){
             this.enabled = false;
