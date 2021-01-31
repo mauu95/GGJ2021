@@ -15,7 +15,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void LoseLife()
     {
-        lives-=1;
         _isStillAlive = false;
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -26,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
                 break;
             }
         }
-
+        updateHealth();
         if (!_isStillAlive) SceneManager.LoadScene("GameOver");
     }
 
@@ -39,8 +38,19 @@ public class PlayerHealth : MonoBehaviour
                 satellite.transform.parent = transform.GetChild(i);
                 satellite.transform.localScale = Vector3.one;
                 satellite.transform.localPosition = Vector3.zero;
-                lives+=1;
+                updateHealth();
+                return;
             }
         }
+    }
+
+    private void updateHealth(){
+        int currentLives =0;
+        for(int i=0; i<transform.childCount;i++){
+            if(transform.GetChild(i).childCount>0){
+                currentLives+=1;
+            }
+        }
+        lives = currentLives;
     }
 }
