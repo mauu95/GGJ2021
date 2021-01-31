@@ -15,6 +15,10 @@ public class HealthManagement : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Hit", transform.position);
         }
 
-        if (other.CompareTag("Satellite")) _playerHealth.AddLife(other.gameObject);
+        if (other.CompareTag("Satellite")) {
+            if(other.TryGetComponent<LifeUp>(out LifeUp lifeUp)){
+                _playerHealth.AddLife(lifeUp.GetActiveSat());
+            }else _playerHealth.AddLife(other.gameObject);
+        }
     }
 }
