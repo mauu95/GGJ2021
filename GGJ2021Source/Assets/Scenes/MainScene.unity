@@ -9559,12 +9559,19 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8162774188535424678, guid: 2380edfc53e28f841a27f4420ba05d71,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b14065eec8ff81f40ae816dd8eb633ad,
+        type: 3}
     - target: {fileID: 8162774188592362534, guid: 2380edfc53e28f841a27f4420ba05d71,
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1960326180846127863, guid: 2380edfc53e28f841a27f4420ba05d71, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2380edfc53e28f841a27f4420ba05d71, type: 3}
 --- !u!1001 &8788782948134095072
 PrefabInstance:
