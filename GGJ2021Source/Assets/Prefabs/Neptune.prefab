@@ -194,7 +194,7 @@ MonoBehaviour:
   attackFrequency: 0.6
   freqVariability: 0.2
   timeToPosChange: 5
-  health: 25
+  health: 30
   unlockEvent: {fileID: 0}
   active: 0
 --- !u!114 &6511610406344881185
