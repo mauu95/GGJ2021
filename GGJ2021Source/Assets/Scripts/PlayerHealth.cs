@@ -11,7 +11,6 @@ public class PlayerHealth : MonoBehaviour
     private void Awake() {
         _isStillAlive = true;
         lives = transform.childCount;
-        Debug.Log(lives);
     }
 
     public void LoseLife()
