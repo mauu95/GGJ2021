@@ -136,7 +136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 020597c862e262747a7977f534f342b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 353291d5d9cea7a4e8a9671b0a1c5a0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackFrequency: 1.2
   freqVariability: 0.2
-  timeToPosChange: 1
+  timeToPosChange: 1.5
   health: 30
   unlockEvent: {fileID: 0}
   active: 0
@@ -191,8 +191,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010938764, y: -0.058048844}
-  m_Size: {x: 2.115739, y: 2.115739}
+  m_Offset: {x: 0.019585371, y: -0.04075563}
+  m_Size: {x: 2.9285312, y: 2.9285316}
   m_Direction: 0
 --- !u!50 &1752631278419709120
 Rigidbody2D:
@@ -352,7 +352,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
