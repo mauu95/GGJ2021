@@ -6,6 +6,7 @@ public class DialogueManager : MonoBehaviour
 {
     #region Singleton
     public static DialogueManager instance;
+    public static bool dialogueRunning{get;private set;}
 
     private void Awake()
     {
@@ -36,7 +37,6 @@ public class DialogueManager : MonoBehaviour
     new Sentence("plutone", "should be careful and avoid getting hit."),
     new Sentence("plutone", "Now good luck, Found!"),
     new Sentence("None", "WASD = move, SPACE = jump, MOUSE SX = shoot")
-    
     };
 
     Sentence[] dialogue2 =
@@ -151,19 +151,20 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void PlayDialogue(int n){
-        Sentence[] dialogue = dialogue1;
+        Sentence[] dialogue = (Sentence[])dialogues[n - 1];
         StartCoroutine(PlayDialogueCoroutine(dialogue));
     }
 
     public IEnumerator PlayDialogueCoroutine(Sentence[] dialogue)
     {
+        dialogueRunning = true;
         foreach(Sentence s in dialogue)
         {
             Play(s);
             yield return StartCoroutine(WaitForKeyDown(KeyCode.Return));
             yield return new WaitForSeconds(0.01f);
         }
-
+        dialogueRunning = false;
         tb.gameObject.SetActive(false);
     }
 
