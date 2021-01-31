@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{0bd12b83-56aa-4479-b397-305721e1145b}">
+		<property name="assetPath">
+			<value>Planets/Giove.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.4559863945578231</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{04c5a72f-0b72-442e-9515-fa477b8d45af}</destination>
+		</relationship>
+	</object>
+</objects>
