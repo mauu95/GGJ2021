@@ -11,6 +11,7 @@ public class HealthManagement : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Debug.Log("Hit by "+other.name);
             _playerHealth.LoseLife();
             FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Hit", transform.position);
         }
