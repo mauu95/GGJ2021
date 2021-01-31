@@ -92,6 +92,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1526
+--- !u!114 &-5890429515609897261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planets/VenereIntro
+  m_EditorClassIdentifier: 
+  Path: event:/Planets/VenereIntro
+  guid: 669dc373f2f25240a29e0ca262cb56f4
+  Banks:
+  - {fileID: 2879116989701338592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1480
 --- !u!114 &-5697227040670936725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,11 +199,11 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637477032103091126
+  lastModified: 637477060565232472
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1620
+    Value: 1750
   Exists: 1
 --- !u!114 &-1420952022596165214
 MonoBehaviour:
@@ -228,6 +251,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2020
+--- !u!114 &-436698877529274191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planets/FemalePlanetHit
+  m_EditorClassIdentifier: 
+  Path: event:/Planets/FemalePlanetHit
+  guid: 563097a39a2468488c7c268b745b711a
+  Banks:
+  - {fileID: 2879116989701338592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,12 +310,15 @@ MonoBehaviour:
   - {fileID: -576671428055600366}
   - {fileID: -6816152670027071647}
   - {fileID: 5769637149964824721}
+  - {fileID: -436698877529274191}
+  - {fileID: -5890429515609897261}
+  - {fileID: 5470939182797268744}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2879116989701338592}
   StringsBanks:
   - {fileID: -3168935086273074259}
-  stringsBankWriteTime: 637477032103091126
+  stringsBankWriteTime: 637477060565232472
   cacheVersion: 6
 --- !u!114 &326683745613115213
 MonoBehaviour:
@@ -424,7 +473,7 @@ MonoBehaviour:
   Path: GGJ2021_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637477032102861743
+  lastModified: 637477060565232472
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -497,6 +546,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &5470939182797268744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Planets/TerraIntro
+  m_EditorClassIdentifier: 
+  Path: event:/Planets/TerraIntro
+  guid: a8d3a9eae0f21d499fef2d947781a6f1
+  Banks:
+  - {fileID: 2879116989701338592}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1652
 --- !u!114 &5769637149964824721
 MonoBehaviour:
   m_ObjectHideFlags: 0

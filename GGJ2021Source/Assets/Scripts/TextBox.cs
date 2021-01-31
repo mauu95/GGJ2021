@@ -23,6 +23,7 @@ public class TextBox : MonoBehaviour
     public Sprite defaultSprite;
     public TextMeshProUGUI text;
     public Image charIMG;
+    public TextMeshProUGUI charName;
 
     private void Start()
     {
@@ -40,5 +41,10 @@ public class TextBox : MonoBehaviour
             charIMG.sprite = defaultSprite;
         else
             charIMG.sprite = characterSprites[n];
+    }
+
+    public void SetCharName(string name)
+    {
+        this.charName.text = name;
     }
 }
