@@ -38,4 +38,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void QuitGame() => Application.Quit();
+
+    public void RespawnAt(Transform spawnPoint)
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.position = spawnPoint.position;
+    }
 }
