@@ -37,7 +37,6 @@ public class DialogueManager : MonoBehaviour
     new Sentence("plutone", "should be careful and avoid getting hit."),
     new Sentence("plutone", "Now good luck, Found!"),
     new Sentence("None", "WASD = move, SPACE = jump, MOUSE SX = shoot")
-    
     };
 
     Sentence[] dialogue2 =
@@ -152,7 +151,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void PlayDialogue(int n){
-        Sentence[] dialogue = dialogue1;
+        Sentence[] dialogue = (Sentence[])dialogues[n - 1];
         StartCoroutine(PlayDialogueCoroutine(dialogue));
     }
 
