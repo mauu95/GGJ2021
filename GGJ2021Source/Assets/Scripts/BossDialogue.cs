@@ -8,7 +8,6 @@ public class BossDialogue : PlanetDialogue
     private void Awake() {
         boss = GetComponentInParent<Enemy>();
     }
-
     
     protected override void DialogueEnd()
     {

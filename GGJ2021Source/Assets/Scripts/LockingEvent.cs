@@ -37,11 +37,11 @@ public class LockingEvent : MonoBehaviour
     private void lockEvent(){
         previousTarget = vmCamera.LookAt;
         previousFollow = vmCamera.Follow;
-        transform.position = previousFollow.position;
+        //transform.position = previousFollow.position;
         vmCamera.Follow = transform;
         vmCamera.LookAt = transform;
         StartCoroutine("MoveLimitersToEdge");
-        StartCoroutine("MoveToOriginalPosition");
+        //StartCoroutine("MoveToOriginalPosition");
     }
     public void UnlockEvent(){
         isUnlocked = true;

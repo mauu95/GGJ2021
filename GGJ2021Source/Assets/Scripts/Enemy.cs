@@ -85,6 +85,7 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator moveToNewPos(int nextPos){
+        Debug.Log("Moving to "+nextPos);
         invulnerable = true;
         Vector3 oldPos = transform.position;
         Vector3 targetPos = attackPositions[nextPos];
@@ -101,7 +102,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Bullet")){
+        if(other.CompareTag("Bullet") && !invulnerable && active){
             health -= 1;
         }
         if(health <=0){

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +9,7 @@ public class GameManager : MonoBehaviour
     public static bool IsGamePaused;
     [SerializeField] private GameObject pauseMenu;
 
-    private void Start()
-    {
-        IsGamePaused = false;
-    }
+    private void Start() => IsGamePaused = false;
 
     private void Update()
     {
@@ -41,9 +37,10 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    public void QuitGame()
+    public void QuitGame() => Application.Quit();
+
+    public void RespawnAt(Transform spawnPoint)
     {
-        Application.Quit();
-        Debug.Log(" QUITTING GAME");
+        GameObject.FindGameObjectWithTag("Player").transform.position = spawnPoint.position;
     }
 }
