@@ -7,6 +7,7 @@ public class AsteroidTrigger : MonoBehaviour
     public bool enabler = true; 
 
     public float GenerateAsteroidEveryTotSec;
+    public bool isLast = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,8 +27,11 @@ public class AsteroidTrigger : MonoBehaviour
             ag.GenerateEveryTotSec = GenerateAsteroidEveryTotSec;
         }
         else
-        {
+        {   
             ag.active = false;
+            if(isLast){
+                ag.stop = true;
+            }
         }
 
     }

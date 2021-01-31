@@ -7,11 +7,16 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     private bool _isStillAlive;
-
-    private void Awake() => _isStillAlive = true;
+    public int lives{get;private set;}
+    private void Awake() {
+        _isStillAlive = true;
+        lives = transform.childCount;
+        Debug.Log(lives);
+    }
 
     public void LoseLife()
     {
+        lives-=1;
         _isStillAlive = false;
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -35,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
                 satellite.transform.parent = transform.GetChild(i);
                 satellite.transform.localScale = Vector3.one;
                 satellite.transform.localPosition = Vector3.zero;
+                lives+=1;
             }
         }
     }
