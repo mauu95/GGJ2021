@@ -16,11 +16,18 @@ public class Sentence
 
     public int GetPlanetID()
     {
-        string[] planets = {"found", "plutone", "nettuno", "urano", "saturno", "giove", "marte", "terra", "venere", "mercurio", "sole"};
+        string[] planets =
+        {
+            "found", "plutone", "nettuno", "urano", "saturno", "giove", "marte", "terra", "venere", "mercurio", "sole"
+        };
         return Array.IndexOf(planets, planet.ToLower());
-
-
     }
+
+    public string GetPlanetName()
+    {
+        return planet;
+    }
+
 
     public string GetText()
     {
