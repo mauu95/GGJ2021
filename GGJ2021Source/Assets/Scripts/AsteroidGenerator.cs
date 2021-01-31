@@ -7,13 +7,32 @@ public class AsteroidGenerator : MonoBehaviour
     public GameObject[] AsteroidPrefabs;
     public Transform playerPosition;
     public float VerticalRange = 10f;
-    public float HorizontalRange = 20f;
+    public float HorizontalRange = 15;
     public float GenerateEveryTotSec = 2f;
     public bool active = false;
+    public bool stop = false;
 
     private void Start()
     {
-        InvokeRepeating("Generate", 1.0f, GenerateEveryTotSec);
+        StartCoroutine("RepeatedGenerate", 1.0f);
+    }
+
+    private IEnumerator RepeatedGenerate(float timeToStart){
+        float timeElapsed = 0f;
+        yield return new WaitForSeconds(timeToStart);
+        while(!stop){
+            if(!active) yield return new WaitForEndOfFrame();
+            else{
+                timeElapsed += Time.deltaTime;
+                if(timeElapsed>GenerateEveryTotSec){
+                    Generate();
+                    timeElapsed = 0f;
+                }
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        yield return null;
+
     }
 
     private void Generate()
