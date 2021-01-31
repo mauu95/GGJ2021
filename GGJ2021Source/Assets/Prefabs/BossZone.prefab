@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueNumber: 1
+  unlockEvent: {fileID: 0}
 --- !u!1 &8788782947574598079
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +184,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788782947574598079}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabler: 1
   GenerateAsteroidEveryTotSec: 0.3
+  isLast: 0
 --- !u!1 &8788782948853463643
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +308,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788782948853463643}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -389,6 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabler: 0
   GenerateAsteroidEveryTotSec: 1
+  isLast: 0
 --- !u!1 &8788782948951839326
 GameObject:
   m_ObjectHideFlags: 0

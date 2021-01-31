@@ -27,6 +27,25 @@ public class Sentence
     {
         return planet;
     }
+    
+    public string GetEnglishPlanetName()
+    {
+        string[] planets =
+        {
+            "found", "plutone", "nettuno", "urano", "saturno", "giove", "marte", "terra", "venere", "mercurio", "sole"
+        };
+        string[] engPlanets =
+        {
+            "found", "pluto", "neptune", "uranus", "sapturne", "jupiter", "mars", "earth", "venus", "mercury", "sun"
+        };
+
+        int index = Array.IndexOf(planets, planet);
+
+        if (index < 0 || index >= engPlanets.Length)
+            return "";
+        else
+            return engPlanets[index];
+    }
 
 
     public string GetText()

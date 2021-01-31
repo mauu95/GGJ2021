@@ -137,6 +137,7 @@ public class DialogueManager : MonoBehaviour
 
         tb.gameObject.SetActive(true);
 
+        tb.SetCharName(sentence.GetEnglishPlanetName());
         tb.SetCharIMG(sentence.GetPlanetID());
         tb.SetText(sentence.GetText());
     }
