@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     public bool isGrounded;
 
-    public Animator animator;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxis("Horizontal") * speed;
         if (Input.GetButtonDown("Jump"))
             Jump();
-
-        animator.SetFloat("speed", Mathf.Abs(horizontalMove));
     }
 
     public void setIsGrounded(bool b)
