@@ -6,13 +6,14 @@ public class PlanetDialogue : MonoBehaviour
 {
     private bool interacted = false;
     public int dialogueNumber;
-    [SerializeField] private LockingEvent unlockEvent;
+    public LockingEvent unlockEvent;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
             return;
         LaunchDialogue();
+        unlockEvent.StartLock();
     }
     protected virtual void DialogueEnd(){
         if(!unlockEvent) return;
