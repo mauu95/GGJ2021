@@ -38,6 +38,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        if (GameManager.IsGamePaused)
+            return;
         float distance = lookDir.magnitude;
         Vector2 direction = lookDir / distance;
         direction.Normalize();
