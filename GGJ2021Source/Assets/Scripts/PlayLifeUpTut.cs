@@ -10,6 +10,7 @@ public class PlayLifeUpTut : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        lifeUpTutGameObject.SetActive(true);
+        if(other.gameObject.CompareTag("Player"))
+            lifeUpTutGameObject.SetActive(true);
     }
 }

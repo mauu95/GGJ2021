@@ -28,6 +28,7 @@ public class TextBox : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(false);
+        charIMG.gameObject.SetActive(true);
     }
 
     public void SetText(string text)
