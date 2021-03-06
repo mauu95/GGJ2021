@@ -6,15 +6,23 @@ using UnityEngine;
 public class HealthManagement : MonoBehaviour
 {
     [SerializeField] public int health;
+    private HPGFXManager HPgfx;
 
+    private void Start()
+    {
+        HPgfx = GetComponentInChildren<HPGFXManager>();
+        HPgfx.SetHealth(health);
+    }
     public void AddHealth()
     {
         health++;
+        HPgfx.SetHealth(health);
     }
 
     public void RemoveHealth()
     {
         health--;
+        HPgfx.SetHealth(health);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Hit", transform.position);
     }
     private void OnTriggerEnter2D(Collider2D other)
