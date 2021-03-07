@@ -5507,6 +5507,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toFollow: {fileID: 343776759}
+  horizontalOffSet: 5
+  verticalOffSet: 2.8
 --- !u!20 &1223267175
 Camera:
   m_ObjectHideFlags: 0

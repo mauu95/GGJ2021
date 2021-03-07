@@ -8,16 +8,16 @@ public class GroundcheckScript : MonoBehaviour
 
     void Start()
     {
-        pc = transform.parent.GetComponent<PlayerMovement>();
+        pc = GetComponent<PlayerMovement>();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
             pc.setIsGrounded(true);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         pc.setIsGrounded(false);
     }
