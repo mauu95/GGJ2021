@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManagement : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class HealthManagement : MonoBehaviour
         health--;
         HPgfx.SetHealth(health);
         FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Hit", transform.position);
+        if (health < 0)
+        {
+            print("YOU LOST");
+            SceneManager.LoadScene("GameOver");
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

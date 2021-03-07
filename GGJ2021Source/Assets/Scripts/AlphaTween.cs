@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AlphaTween : MonoBehaviour
 {
     public int tweenTime = 5;
+    public GameObject menu;
     private void Start() => Tween();
 
     private void Tween()
@@ -19,5 +20,12 @@ public class AlphaTween : MonoBehaviour
             c.a = value;
             image.color = c;
         });
+    }
+
+    private void FixedUpdate()
+    {
+        Image image = GetComponent<Image>();
+        if (image.color.a == 0)
+            menu.SetActive(true);
     }
 }

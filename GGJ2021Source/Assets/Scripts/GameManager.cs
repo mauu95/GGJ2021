@@ -43,4 +43,9 @@ public class GameManager : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").transform.position = spawnPoint.position;
     }
+
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

@@ -85,7 +85,6 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator moveToNewPos(int nextPos){
-        Debug.Log("Moving to "+nextPos);
         invulnerable = true;
         Vector3 oldPos = transform.position;
         Vector3 targetPos = attackPositions[nextPos];
