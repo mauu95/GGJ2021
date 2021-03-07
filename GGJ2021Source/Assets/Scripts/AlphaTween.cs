@@ -8,12 +8,14 @@ public class AlphaTween : MonoBehaviour
 {
     public int tweenTime = 5;
     public GameObject menu;
-    private void Start() => Tween();
+    private Image image;
+    private void Start() {
+        Tween();
+        image = GetComponent<Image>();
+    } 
 
     private void Tween()
     {
-        Image image = GetComponent<Image>();
-
         LeanTween.value(gameObject, 1, 0, tweenTime).setOnUpdate(value =>
         {
             Color c = image.color;
@@ -24,8 +26,11 @@ public class AlphaTween : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Image image = GetComponent<Image>();
         if (image.color.a == 0)
+        {
+            FindObjectOfType<GameManager>().CursorOn();
             menu.SetActive(true);
+        }
+
     }
 }

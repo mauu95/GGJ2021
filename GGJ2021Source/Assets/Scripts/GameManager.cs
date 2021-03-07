@@ -23,11 +23,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CursorOff()
+    {
+        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void CursorOn()
+    {
+        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+    }
+
     public void PauseGame()
     {
         IsGamePaused = true;
         Time.timeScale = 0.0f;
         pauseMenu.SetActive(true);
+        CursorOn();
     }
 
     public void ResumeGame()
@@ -35,6 +48,7 @@ public class GameManager : MonoBehaviour
         IsGamePaused = false;
         Time.timeScale = 1.0f;
         pauseMenu.SetActive(false);
+        CursorOff();
     }
 
     public void QuitGame() => Application.Quit();
