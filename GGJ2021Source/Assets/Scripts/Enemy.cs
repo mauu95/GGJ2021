@@ -100,28 +100,29 @@ public class Enemy : MonoBehaviour
         yield return null;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag("Bullet") && !invulnerable && active){
-            switch (gameObject.name)
-            {
-                case "Pluto":
-                case "Neptune":
-                case "Uranus":
-                case "Saturn":
-                case "Jupiter":
-                case "Mars": 
-                case "Mercury":
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Planets/MalePlanetHit", transform.position);
-                    break;
-                case "Earth":
-                case "Venus":
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Planets/FemalePlanetHit", transform.position);
-                    break;
-               
-            }
-            health -= 1;
+    public void TakeDamage()
+    {
+        switch (gameObject.name)
+        {
+            case "Pluto":
+            case "Neptune":
+            case "Uranus":
+            case "Saturn":
+            case "Jupiter":
+            case "Mars":
+            case "Mercury":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Planets/MalePlanetHit", transform.position);
+                break;
+            case "Earth":
+            case "Venus":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Planets/FemalePlanetHit", transform.position);
+                break;
+
         }
-        if(health <=0){
+        health -= 1;
+
+        if (health <= 0)
+        {
             unlockEvent.UnlockEvent();
             Destroy(gameObject);
         }

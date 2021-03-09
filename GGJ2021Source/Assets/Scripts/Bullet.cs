@@ -17,6 +17,8 @@ public class Bullet : MonoBehaviour
     virtual protected void OnTriggerEnter2D(Collider2D other) {
         foreach(string t in targetTags){
             if(other.CompareTag(t)){
+                if (other.gameObject.GetComponent("Enemy"))
+                    other.gameObject.GetComponent<Enemy>().TakeDamage();
                 FindObjectOfType<EffectManager>().InstantiateImpact(transform.position);
                 Destroy(gameObject);
                 return;
