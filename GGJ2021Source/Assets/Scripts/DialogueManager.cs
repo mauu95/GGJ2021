@@ -114,6 +114,14 @@ public class DialogueManager : MonoBehaviour
         new Sentence("mercurio", "to me. Now go on, you've made it to the Big Boss!")
     };
 
+
+    Sentence[] dialogue10 =
+    {
+        new Sentence("sole", "We! Sono il sole e sono figo"),
+        new Sentence("found", "Ok"),
+        new Sentence("sole", "Facciamo a botte!")
+    };
+
     ArrayList dialogues;
 
     private void Start()
@@ -128,6 +136,7 @@ public class DialogueManager : MonoBehaviour
         dialogues.Add(dialogue7);
         dialogues.Add(dialogue8);
         dialogues.Add(dialogue9);
+        dialogues.Add(dialogue10);
     }
 
     public void Play(Sentence sentence)
@@ -190,6 +199,9 @@ public class DialogueManager : MonoBehaviour
                 break;
             case "mercurio":
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Planets/Mercurio", transform.position);
+                break;
+            case "sole":
+                Debug.LogError("TODO PER NICO: Aggiungi la voce del sole");
                 break;
             default:
                 Debug.LogError("there's no such planet in the dialogue");
