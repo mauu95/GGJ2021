@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private string[] targetTags;
     protected Vector3 origin;
     protected Vector3 direction;
-    private float timeToLive =20f;
+    [SerializeField]private float timeToLive =20f;
     public virtual void ShootBehaviour(Vector3 spawnPoint,Vector3 shootDir){
         origin = spawnPoint;
         direction = shootDir.normalized;
