@@ -5,10 +5,7 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     #region Singleton
-
     public static DialogueManager instance;
-    public static bool dialogueRunning { get; private set; }
-
     private void Awake()
     {
         if (instance != null)
@@ -16,11 +13,14 @@ public class DialogueManager : MonoBehaviour
 
         instance = this;
     }
-
     #endregion
 
 
     private TextBox tb;
+    public static bool dialogueRunning { get; private set; }
+
+    public delegate void OnDialogueEnd();
+    public static OnDialogueEnd onDialogueEndCallback;
 
     Sentence[] dialogue1 =
     {
@@ -121,6 +121,12 @@ public class DialogueManager : MonoBehaviour
         new Sentence("found", "Ok"),
         new Sentence("sole", "Facciamo a botte!")
     };
+    Sentence[] dialogue11 =
+    {
+        new Sentence("sole", "Hai vinto basta fare a botte"),
+        new Sentence("found", "Ok"),
+        new Sentence("sole", "Benvenuto nel sistema solare bro")
+    };
 
     ArrayList dialogues;
 
@@ -137,6 +143,7 @@ public class DialogueManager : MonoBehaviour
         dialogues.Add(dialogue8);
         dialogues.Add(dialogue9);
         dialogues.Add(dialogue10);
+        dialogues.Add(dialogue11);
     }
 
     public void Play(Sentence sentence)
@@ -201,7 +208,7 @@ public class DialogueManager : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Planets/Mercurio", transform.position);
                 break;
             case "sole":
-                Debug.LogError("TODO PER NICO: Aggiungi la voce del sole");
+                //Debug.Log("TODO PER NICO: Aggiungi la voce del sole");
                 break;
             default:
                 Debug.LogError("there's no such planet in the dialogue");
@@ -218,6 +225,9 @@ public class DialogueManager : MonoBehaviour
 
         dialogueRunning = false;
         tb.gameObject.SetActive(false);
+
+        if(onDialogueEndCallback!=null)
+            onDialogueEndCallback.Invoke();
     }
 
     private IEnumerator WaitForKeyDown(KeyCode keyCode)

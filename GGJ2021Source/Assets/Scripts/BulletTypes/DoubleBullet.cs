@@ -17,7 +17,7 @@ public class DoubleBullet : Bullet
         bulletBWeight = bulletBWeight / (bulletAWeight + bulletBWeight);
         bulletAWeight = bulletAWeight / (bulletAWeight + bulletBWeight);
         threshold = bulletAWeight;
-        Debug.Log(threshold);
+        //Debug.Log(threshold);
     }
     public override void ShootBehaviour(Vector3 spawnPoint, Vector3 shootDir)
     {

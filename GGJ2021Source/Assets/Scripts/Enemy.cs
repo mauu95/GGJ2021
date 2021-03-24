@@ -123,8 +123,19 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            unlockEvent.UnlockEvent();
-            Destroy(gameObject);
+            if(gameObject.name != "Sun"){
+                unlockEvent.UnlockEvent();
+                Destroy(gameObject);
+                return;
+            }
+            GetComponent<EnemyShooter>().enabled = false;
+            DialogueManager.instance.PlayDialogue(11);
+            DialogueManager.onDialogueEndCallback += LoadEndGame;
+            enabled = false;
         }
+    }
+
+    void LoadEndGame(){
+        GameManager.instance.LoadEndScene();
     }
 }

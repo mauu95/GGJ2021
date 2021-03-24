@@ -6,6 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
+    public static GameManager instance;
+    private void Awake()
+    {
+        if (instance != null)
+            return;
+
+        instance = this;
+    }
+    #endregion
     public static bool IsGamePaused;
     [SerializeField] private GameObject pauseMenu;
 
@@ -14,7 +24,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            LoadMainScene();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -47,8 +57,9 @@ public class GameManager : MonoBehaviour
     {
         IsGamePaused = false;
         Time.timeScale = 1.0f;
-        pauseMenu.SetActive(false);
         CursorOff();
+        if(pauseMenu)
+            pauseMenu.SetActive(false);
     }
 
     public void QuitGame() => Application.Quit();
@@ -61,5 +72,9 @@ public class GameManager : MonoBehaviour
     public void LoadMainScene()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void LoadEndScene(){
+        SceneManager.LoadScene("EndGameScene");
     }
 }
