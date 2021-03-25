@@ -49,8 +49,9 @@ public class GameManager : MonoBehaviour
     {
         IsGamePaused = true;
         Time.timeScale = 0.0f;
-        pauseMenu.SetActive(true);
         CursorOn();
+        if(pauseMenu)
+            pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()

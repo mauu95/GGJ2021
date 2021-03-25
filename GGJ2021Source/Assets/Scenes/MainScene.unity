@@ -4911,7 +4911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d997e2b648f5a4c8353b55ed8ca7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactPrefab: {fileID: 3310045582444480935, guid: 099bbea4005278349932069fe14f6160,
+  impactPrefab: {fileID: 6367941451824995879, guid: 099bbea4005278349932069fe14f6160,
     type: 3}
 --- !u!1001 &990939705
 PrefabInstance:
