@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTags: []
-  timeToLive: 10
+  timeToLive: 5
   maxAngleChange: 60
   speed: 8.5

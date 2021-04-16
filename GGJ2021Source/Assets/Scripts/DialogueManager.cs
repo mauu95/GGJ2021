@@ -117,15 +117,15 @@ public class DialogueManager : MonoBehaviour
 
     Sentence[] dialogue10 =
     {
-        new Sentence("sole", "We! Sono il sole e sono figo"),
-        new Sentence("found", "Ok"),
-        new Sentence("sole", "Facciamo a botte!")
+        new Sentence("sole", "Who are you?"),
+        new Sentence("found", "Hi, My name is Found and I want to join this beautiful galaxy"),
+        new Sentence("sole", "I see... Show me what you got first!")
     };
     Sentence[] dialogue11 =
     {
-        new Sentence("sole", "Hai vinto basta fare a botte"),
-        new Sentence("found", "Ok"),
-        new Sentence("sole", "Benvenuto nel sistema solare bro")
+        new Sentence("sole", "Alright little friend. You proved me your determination."),
+        new Sentence("sole", "You can join us."),
+        new Sentence("found", "Thanks! I've finally found a new home")
     };
 
     ArrayList dialogues;

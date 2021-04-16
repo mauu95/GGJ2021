@@ -22,4 +22,12 @@ public class HeatseekerBullet : Bullet
         transform.rotation = newRotation;
         transform.position = transform.position + direction*speed*Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject obj = collision.gameObject;
+        if(obj.CompareTag("Player"))
+            Destroy(gameObject);
+
+    }
 }

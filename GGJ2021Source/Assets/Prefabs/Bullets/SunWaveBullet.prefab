@@ -99,7 +99,7 @@ MonoBehaviour:
   targetTags:
   - Player
   - Bullet
-  timeToLive: 20
+  timeToLive: 5
   speed: 6
 --- !u!70 &5975462881653870158
 CapsuleCollider2D:
