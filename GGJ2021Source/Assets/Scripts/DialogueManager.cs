@@ -117,15 +117,26 @@ public class DialogueManager : MonoBehaviour
 
     Sentence[] dialogue10 =
     {
-        new Sentence("sole", "Who are you?"),
-        new Sentence("found", "Hi, My name is Found and I want to join this beautiful galaxy"),
-        new Sentence("sole", "I see... Show me what you got first!")
+        new Sentence("sole", "Who’s there? Ah! How funny, a planet"),
+        new Sentence("sole", "You’re so little I almost couldn’t see you"),
+        new Sentence("sole", "What are you doing here, away from your galaxy?"),
+        new Sentence("found", "My galaxy was destroyed."),
+        new Sentence("found", "I came here looking for a new place to stay and I liked your Solar System very much"),
+        new Sentence("found", "Can I stay? "),
+        new Sentence("sole", "If you want to stay you need to prove that you are worthy"),
+        new Sentence("sole", "See, you may have defeated my little planets"),
+        new Sentence("sole", "but I am the boss here and everything revolves around me"),
+        new Sentence("sole", "Let’s have a fight, see what you can do"),
+        new Sentence("sole", "and if you impress me I’ll find you a place in my system.")
     };
     Sentence[] dialogue11 =
     {
-        new Sentence("sole", "Alright little friend. You proved me your determination."),
-        new Sentence("sole", "You can join us."),
-        new Sentence("found", "Thanks! I've finally found a new home")
+        new Sentence("sole", "There, there. I surrender, you have won"),
+        new Sentence("sole", "It has been a fun fight hasn’t it? Now, where could I put you?"),
+        new Sentence("sole", "Mmmh, you look like you could use some of my warmth,"),
+        new Sentence("sole", "so you’ll settle between Mercury and Venus, is that ok?"),
+        new Sentence("found", "Yes!"),
+        new Sentence("sole", "Perfect. Welcome home, Found.")
     };
 
     ArrayList dialogues;
