@@ -243,7 +243,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator WaitForKeyDown(KeyCode keyCode)
     {
-        while (!Input.GetKeyUp(keyCode))
+        while (!Input.GetKeyUp(keyCode) && !Input.GetMouseButtonUp(0))
             yield return null;
     }
 }
