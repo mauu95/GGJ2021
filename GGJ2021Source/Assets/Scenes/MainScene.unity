@@ -10251,6 +10251,11 @@ PrefabInstance:
       propertyPath: unlockEvent
       value: 
       objectReference: {fileID: 742390134}
+    - target: {fileID: 1752631278419709135, guid: c4ec910f8518cf446827ebe59374bc8b,
+        type: 3}
+      propertyPath: attackFrequency
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1752631279029969100, guid: c4ec910f8518cf446827ebe59374bc8b,
         type: 3}
       propertyPath: m_LocalPosition.x
