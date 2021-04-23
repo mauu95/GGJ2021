@@ -38,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
-        if (GameManager.IsGamePaused)
+        if (GameManager.IsGamePaused || DialogueManager.dialogueRunning)
             return;
         float distance = lookDir.magnitude;
         Vector2 direction = lookDir / distance;
