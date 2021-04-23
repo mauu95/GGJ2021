@@ -11,7 +11,7 @@ public class BossDialogue : PlanetDialogue
     
     protected override void DialogueEnd()
     {
-        boss.active = true;
+        boss.ActivateBoss();
     }
 
     

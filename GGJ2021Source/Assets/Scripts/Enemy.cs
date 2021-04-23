@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     private bool invulnerable = false;
     private Transform player;
     private EnemyShooter shooter;
-    public bool active = false;
+    public bool activ = false;
 
 
     private void Awake() {
@@ -37,8 +37,25 @@ public class Enemy : MonoBehaviour
         shooter = GetComponent<EnemyShooter>();
     }
 
+    private void Start()
+    {
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    public void ActivateBoss()
+    {
+        StartCoroutine(Sleep(1));
+    }
+
+    private IEnumerator Sleep(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        GetComponent<Collider2D>().enabled = true;
+        activ = true;
+    }
+
     private void Update() {
-        if(!active)return;
+        if(!activ)return;
         movementBehaviour();
         attackBehaviour();
         GraphicsBehaviour();
