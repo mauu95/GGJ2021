@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class AsteroidGenerator : MonoBehaviour
@@ -12,27 +13,34 @@ public class AsteroidGenerator : MonoBehaviour
     public bool active = false;
     public bool stop = false;
 
+    private GameObject aster;
+
     private void Start()
     {
         StartCoroutine("RepeatedGenerate", 1.0f);
     }
 
-    private IEnumerator RepeatedGenerate(float timeToStart){
+    private IEnumerator RepeatedGenerate(float timeToStart)
+    {
         float timeElapsed = 0f;
         yield return new WaitForSeconds(timeToStart);
-        while(!stop){
-            if(!active) yield return new WaitForEndOfFrame();
-            else{
+        while (!stop)
+        {
+            if (!active) yield return new WaitForEndOfFrame();
+            else
+            {
                 timeElapsed += Time.deltaTime;
-                if(timeElapsed>GenerateEveryTotSec){
+                if (timeElapsed > GenerateEveryTotSec)
+                {
                     Generate();
                     timeElapsed = 0f;
                 }
+
                 yield return new WaitForEndOfFrame();
             }
         }
-        yield return null;
 
+        yield return null;
     }
 
     private void Generate()
@@ -57,7 +65,7 @@ public class AsteroidGenerator : MonoBehaviour
         {
             noise = Vector2.down;
             force = Vector2.left;
-            position += new Vector3(HorizontalRange, Random.Range(-VerticalRange,VerticalRange), 0f);
+            position += new Vector3(HorizontalRange, Random.Range(-VerticalRange, VerticalRange), 0f);
         }
         else
         {
@@ -67,7 +75,7 @@ public class AsteroidGenerator : MonoBehaviour
         }
 
 
-        GameObject aster = Instantiate(AsteroidPrefabs[Random.Range(0,AsteroidPrefabs.Length)], position, Quaternion.identity);
+        aster = Instantiate(AsteroidPrefabs[Random.Range(0, AsteroidPrefabs.Length)], position, Quaternion.identity);
         Rigidbody2D rb = aster.GetComponent<Rigidbody2D>();
 
         aster.transform.localScale = scale;
@@ -77,8 +85,6 @@ public class AsteroidGenerator : MonoBehaviour
         noise *= Random.Range(-10, 10) * 10;
 
         rb.AddForce(force + noise);
-        
     }
-
-
+    
 }

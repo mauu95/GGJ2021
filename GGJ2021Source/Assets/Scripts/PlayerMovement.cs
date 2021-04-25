@@ -14,13 +14,15 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
+        if (GameManager.IsGamePaused) return;
+
         horizontalMove = Input.GetAxis("Horizontal") * speed;
         if (Input.GetButtonDown("Jump"))
             Jump();
@@ -28,17 +30,17 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("speed", Mathf.Abs(horizontalMove));
     }
 
-    public void setIsGrounded(bool b)
+    public void SetIsGrounded(bool b)
     {
         isGrounded = b;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Move(horizontalMove * Time.deltaTime);
     }
 
-    void Move(float move)
+    private void Move(float move)
     {
         Vector3 targetVelocity = new Vector2(move, rb.velocity.y);
         rb.velocity = targetVelocity;
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
     }
 
-    void Jump()
+    private void Jump()
     {
         if (isGrounded)
         {
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Flip()
+    private void Flip()
     {
         facingRight = !facingRight;
         transform.Find("GFX").GetComponent<SpriteRenderer>().flipX = !facingRight;

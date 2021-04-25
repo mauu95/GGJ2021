@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
-{
+public class PlayerShooting : MonoBehaviour {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject crosshairsPrefab;
 
@@ -16,14 +15,14 @@ public class PlayerShooting : MonoBehaviour
     private float rotationZ;
 
 
-    private void Start()
-    {
+    private void Start() {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    private void Update()
-    {
+    private void Update() {
+        if (GameManager.IsGamePaused) return;
+
         Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         lookDir = mouseWorldPoint - firePoint.transform.position;
         crosshairsPrefab.transform.position = new Vector2(mouseWorldPoint.x, mouseWorldPoint.y);
@@ -36,8 +35,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) Shoot();
     }
 
-    private void Shoot()
-    {
+    private void Shoot() {
         float distance = lookDir.magnitude;
         Vector2 direction = lookDir / distance;
         direction.Normalize();
@@ -45,8 +43,7 @@ public class PlayerShooting : MonoBehaviour
         InitBullet(direction, rotationZ);
     }
 
-    private void InitBullet(Vector2 direction, float rotation)
-    {
+    private void InitBullet(Vector2 direction, float rotation) {
         GameObject b = Instantiate(bulletPrefab) as GameObject;
         b.transform.position = firePoint.position;
         b.transform.rotation = Quaternion.Euler(0, 0, rotation);
